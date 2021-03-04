@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ball_list_item"
+        android:title="@string/ball_list_item_text"
+        android:icon="@drawable/balllist_item">
+
+    </item>
+    <item
+        android:id="@+id/ball_item"
+        android:title="@string/ball_item_text"
+        android:icon="@drawable/ball_item">
+    </item>
+    <item
+        android:id="@+id/choose_ball_item"
+        android:title="@string/choose_ball_item_text"
+        android:icon="@drawable/choose_ball_item">
+
+    </item>
+</menu>

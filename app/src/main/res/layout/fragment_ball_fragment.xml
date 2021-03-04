@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:layout_marginHorizontal="25dp"
+            android:id="@+id/ball_component"
+
+
+            tools:ignore="Suspicious0dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+
+                android:id="@+id/ball_back"
+                android:src = "@drawable/ball_back">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:alpha="1"
+                android:id="@+id/advice_picture"
+                android:src = "@drawable/question">
+            </ImageView>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:src = "@drawable/ball">
+            </ImageView>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="17"
+            android:layout_marginHorizontal="12dp"
+
+            android:alpha="1"
+
+            android:text="kok"
+
+            android:gravity="center_horizontal"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:id="@+id/texti"
+            tools:ignore="Suspicious0dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

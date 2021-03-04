@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ShakeBall</string>
+    <string name="setting_label">Settings</string>
+    <string name="set_vibration_text">Vibration</string>
+    <string name="bouncy_setting_text">Bouncy</string>
+    <string name="vibration_strength_set_text">Vibration strength</string>
+    <string name="sensibility_set_text">Sensibility</string>
+    <string name="friction_set_text">Friction</string>
+    <string name="choose_ball_item_text">change ball</string>
+    <string name="ball_item_text">ball</string>
+    <string name="ball_list_item_text">answer list</string>
+    <string-array name="strength_set">
+        <item>low</item>
+        <item>middle</item>
+        <item>high</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_ball_advice">start_advice</string>
+</resources>
