@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -34,26 +33,37 @@ public class MainActivity extends AppCompatActivity implements ball_fragment.Nex
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.ball_list_item){
+                    ball_items_fragment frag = new ball_items_fragment();
+
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fragment_container, frag, null)
+                            .setReorderingAllowed(true)
+                            .commit();
                 }
 
                 if (item.getItemId() == R.id.ball_item){
                     fragment = new ball_fragment();
-                    setBallParameters(fragment);
 
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.main_fragment_container, fragment, null)
                             .setReorderingAllowed(true)
                             .commit();
-
                 }
 
                 if (item.getItemId() == R.id.choose_ball_item){
+                    all_balls_fragment frag = new all_balls_fragment();
+
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fragment_container, frag, null)
+                            .setReorderingAllowed(true)
+                            .commit();
                 }
                 return true;
             }
         });
     }
 
+    @Override
     public void setBallParameters(ball_fragment fragment) {
         fragment.setSensibility((int) memory_settings.getLong("sensibility", 0));
         fragment.setBouncy((int) memory_settings.getInt("bouncy", 0));
@@ -80,14 +90,6 @@ public class MainActivity extends AppCompatActivity implements ball_fragment.Nex
 
     @Override
     public String getAdviceText() {
-        return "abababab";
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (fragment != null){
-            setBallParameters(fragment);
-        }
+        return "advice_generated";
     }
 }

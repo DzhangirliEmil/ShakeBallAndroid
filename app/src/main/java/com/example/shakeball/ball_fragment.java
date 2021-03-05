@@ -34,6 +34,7 @@ public class ball_fragment extends Fragment {
 
     static interface NextValue{
         String getAdviceText();
+        void setBallParameters(ball_fragment fragment);
     }
     private NextValue nextValue;
 
@@ -307,6 +308,8 @@ public class ball_fragment extends Fragment {
     @Override
     public void onResume(){
         super.onResume();
+        nextValue.setBallParameters(this);
+
         sensorManager.registerListener(acceleration_listener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         animating = false;
 

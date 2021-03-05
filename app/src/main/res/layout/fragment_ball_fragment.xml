@@ -55,7 +55,7 @@
 
             android:alpha="1"
 
-            android:text="kok"
+            android:text="default_advice"
 
             android:gravity="center_horizontal"
             android:textSize="40sp"
