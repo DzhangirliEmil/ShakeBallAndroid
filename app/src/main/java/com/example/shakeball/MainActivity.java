@@ -17,11 +17,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements ball_fragment.NextValue{
     private SharedPreferences memory_settings;
     private ball_fragment fragment;
+    private AdviceManager adviceManager = new AdviceManager();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        adviceManager.loadAdvice();
         memory_settings = getSharedPreferences("settings", Context.MODE_PRIVATE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -89,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements ball_fragment.Nex
     }
 
     @Override
-    public String getAdviceText() {
-        return "advice_generated";
+    public BallAdvice getAdviceText() {
+        BallAdvice new_ball = adviceManager.getAdvice();
+        return new_ball;
     }
 }

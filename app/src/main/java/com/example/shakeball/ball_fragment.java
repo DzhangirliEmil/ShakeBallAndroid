@@ -33,7 +33,7 @@ public class ball_fragment extends Fragment {
     private Context context;
 
     static interface NextValue{
-        String getAdviceText();
+        BallAdvice getAdviceText();
         void setBallParameters(ball_fragment fragment);
     }
     private NextValue nextValue;
@@ -100,10 +100,7 @@ public class ball_fragment extends Fragment {
 
         final TextView advice = (TextView) view.findViewById(R.id.texti);
         final ImageView advice_pic = (ImageView) view.findViewById(R.id.advice_picture);
-
-
         final Vibrator vibrator = (Vibrator) context.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-
         final SpringAnimation spring_anim_y = new SpringAnimation(sphere, DynamicAnimation.TRANSLATION_Y);
         final SpringAnimation spring_anim_x = new SpringAnimation(sphere, DynamicAnimation.TRANSLATION_X);
 
@@ -115,13 +112,13 @@ public class ball_fragment extends Fragment {
 
             switch (friction){
                 case 0:
-                    spring_force_x.setStiffness(SpringForce.STIFFNESS_VERY_LOW);
-                    break;
-                case 1:
                     spring_force_x.setStiffness(SpringForce.STIFFNESS_LOW);
                     break;
-                case 2:
+                case 1:
                     spring_force_x.setStiffness(SpringForce.STIFFNESS_MEDIUM);
+                    break;
+                case 2:
+                    spring_force_x.setStiffness(SpringForce.STIFFNESS_HIGH);
                     break;
                 default:
                     break;
@@ -134,13 +131,13 @@ public class ball_fragment extends Fragment {
             spring_force_y.setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
             switch (friction){
                 case 0:
-                    spring_force_y.setStiffness(SpringForce.STIFFNESS_VERY_LOW);
-                    break;
-                case 1:
                     spring_force_y.setStiffness(SpringForce.STIFFNESS_LOW);
                     break;
-                case 2:
+                case 1:
                     spring_force_y.setStiffness(SpringForce.STIFFNESS_MEDIUM);
+                    break;
+                case 2:
+                    spring_force_y.setStiffness(SpringForce.STIFFNESS_HIGH);
                     break;
                 default:
                     break;
@@ -159,8 +156,7 @@ public class ball_fragment extends Fragment {
                                                boolean canceled,
                                                float value, float velocity) {
                         if (number_of_exes[0] == 1) {
-                            setNewAdvuce();
-
+                            setNewAdvice();
                             advice.setText(advice_text);
                             //advice_pic.setImageResource(current_picture);
 
@@ -183,6 +179,10 @@ public class ball_fragment extends Fragment {
                                                boolean canceled,
                                                float value, float velocity) {
                         if (number_of_exes[0] == 1) {
+
+                            setNewAdvice();
+                            advice.setText(advice_text);
+
                             advice.setAlpha(1f);
                             advice.startAnimation(appear);
 
@@ -303,8 +303,6 @@ public class ball_fragment extends Fragment {
         return view;
     }
 
-
-
     @Override
     public void onResume(){
         super.onResume();
@@ -332,10 +330,8 @@ public class ball_fragment extends Fragment {
         sphere.setY(y_initial_ball_coordinate);
     }
 
-    private void setNewAdvuce()
+    private void setNewAdvice()
     {
-        advice_text = (String) nextValue.getAdviceText();
+        advice_text = (String) nextValue.getAdviceText().getText();
     }
-
-
 }
