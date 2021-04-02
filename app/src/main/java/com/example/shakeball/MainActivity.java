@@ -14,7 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements ball_fragment.NextValue{
+public class MainActivity extends AppCompatActivity implements ball_fragment.NextValue, ball_items_fragment.AdviceManagerInterface{
     private SharedPreferences memory_settings;
     private ball_fragment fragment;
     private AdviceManager adviceManager = new AdviceManager();
@@ -95,5 +95,10 @@ public class MainActivity extends AppCompatActivity implements ball_fragment.Nex
     public BallAdvice getAdviceText() {
         BallAdvice new_ball = adviceManager.getAdvice();
         return new_ball;
+    }
+
+    @Override
+    public AdviceManager getAdviceManager() {
+        return adviceManager;
     }
 }
