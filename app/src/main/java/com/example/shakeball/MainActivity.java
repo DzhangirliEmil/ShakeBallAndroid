@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity implements ball_fragment.Nex
         setSupportActionBar(toolbar);
 
         BottomNavigationView nav = (BottomNavigationView) findViewById(R.id.main_navigation_view);
+        nav.setSelectedItemId(R.id.ball_item);
+
+        fragment = new ball_fragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_fragment_container, fragment, null)
+                .setReorderingAllowed(true)
+                .commit();
 
         nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
